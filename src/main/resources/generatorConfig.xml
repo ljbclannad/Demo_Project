@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+    <context id="Mysql" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+
+        <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
+            <property name="mappers" value="tk.mybatis.mapper.common.Mapper"/>
+        </plugin>
+
+        <!--<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://rdsw49x2tpph3bfc8ldvo.mysql.rds.aliyuncs.com/himalaya?characterEncoding=utf8&amp;useSSL=false"
+                        userId="ykf_test"
+                        password="EvM3^9#YP&amp;">
+        </jdbcConnection>-->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jjdbc:mysql://localhost:3306/drug?characterEncoding=utf8&useSSL=false"
+                        userId="root"
+                        password="root">
+        </jdbcConnection>
+
+        <javaModelGenerator targetPackage="com.example.demo.mybaits.bean.entity" />
+
+         <sqlMapGenerator targetPackage="static.Mapper" />
+
+         <javaClientGenerator targetPackage="com.example.demo.mybaits.bean.mapper"  type="XMLMAPPER"/>
+
+        <table tableName="order">
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+    </context>
+</generatorConfiguration>
