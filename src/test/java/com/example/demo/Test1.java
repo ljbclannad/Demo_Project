@@ -284,6 +284,13 @@ public class Test1 {
     @Test
     public void testSubString() throws Exception{
         String s = "2019-06-10";
+//        System.out.println(s.substring(0,7));
+
+        String start = Optional.ofNullable(s)
+                .map(time -> s)
+//                .map(time -> withholdStartTime.substring(0, 7))
+                .orElse(dateUtil.commonDateFormat.format(new Date()));
+        System.out.println(start);
 //        System.out.println(dateUtil.timeFormat.parse(s));
 //        System.out.println(dateUtil.timeFormat.format(new Date()));
     }
