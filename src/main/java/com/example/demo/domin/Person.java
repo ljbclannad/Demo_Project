@@ -13,10 +13,7 @@ import java.beans.Introspector;
 import java.beans.PropertyDescriptor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 @Getter
 @Setter
@@ -34,6 +31,30 @@ public class Person {
         map.put("age", age);
         map.put("sex", sex);
         return map;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAge() {
+        return age;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
     }
 
     public Person() {
@@ -61,4 +82,21 @@ public class Person {
                 ", sex='" + sex + '\'' +
                 '}';
     }
+
+    //尝试重写了equals方法
+    @Override
+    public boolean equals(Object obj) {
+        Person person = new Person("lejb");
+        if(person.getName().equals("lejb")){
+            return false;
+        }else {
+            return true;
+        }
+    }
+
+//    @Override
+//    public int hashCode() {
+//        return new Random().nextInt(10);
+////        return super.hashCode();
+//    }
 }
