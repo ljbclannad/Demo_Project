@@ -42,32 +42,18 @@ public class Test1 {
     }
 
     @Test
-    public void test2() {
-        List<String> list = new ArrayList<String>();
-        Iterator<String> it = list.listIterator();
-        ((ListIterator<String>) it).set("1");
-        System.out.println(it.hasNext());
-    }
-
-    @Test
     public void testString() {
-//        String s = MessageFormat.format("{0},{1}","hello","world");
-//        String s1 = String.format("%s,%s","hello1","world");
-//        StringBuffer s2 = new StringBuffer("aaaa");
-//        s2.append("sadsad");
-//        System.out.println(s2);
-//        System.out.println(s1);
-//        System.out.println(s);
         String cardNum = "62309107990228044241";
+        System.out.println(cardNum.length());
+        //subString从下标开始,选择几位
         System.out.println(StringUtils.left(cardNum, 4) + " **** " + cardNum.substring(cardNum.length() - 4, cardNum.length()));
     }
 
     @Test
     public void testRandom() {
-//        int a1 = (int)(((Math.random()*9+1)*100000));
-//        System.out.println(System.currentTimeMillis()+String.valueOf(a1));
-        List list = new ArrayList();
-        System.out.println(list.size());
+        //随机获取5位数
+        int a1 = (int)(((Math.random()*9+1)*100000));
+        System.out.println(System.currentTimeMillis()+"#"+String.valueOf(a1));
     }
 
     @Test
@@ -77,15 +63,6 @@ public class Test1 {
         Object jsonObject = JSONObject.toJSON(person);
         System.out.println(JSONObject.toJSONString(jsonObject));
     }
-
-    @Test
-    public void testIsEmpty() {
-        Map<String, String> map = new HashMap<>();
-        map.put("syncId", null);
-        System.out.println(map.isEmpty());
-        System.out.println(map);
-    }
-
 
     @Test
     public void test111() {
@@ -131,8 +108,6 @@ public class Test1 {
 
 //        s = s.replaceAll("name","123");
         System.out.println(s);
-
-
     }
 
 
@@ -175,18 +150,6 @@ public class Test1 {
     }
 
     @Test
-    public void pageHelperTest() {
-//        PageHelper.startPage(1,2);
-        List list = new ArrayList();
-        list.add(1);
-        list.add(2);
-        list.add(3);
-//        List list1 = (List) list.stream().skip(pageSize *(pageNum -1)).limit(2).collect(Collectors.toList());
-//        PageInfo pageInfo = new PageInfo<>(list);
-//        System.out.println(list1);
-    }
-
-    @Test
     public void testBigDeicmal() {
 //        BigDecimal bigDecimal = new BigDecimal(2);
 //        BigDecimal bigDecimal1 = new BigDecimal(-1);
@@ -206,11 +169,6 @@ public class Test1 {
     public void testMonthDay() throws Exception {
 //        System.out.println(new SimpleDateFormat("MM月dd日").format(new SimpleDateFormat("MM-dd").parse("2019-01-11")));
         System.out.println(new SimpleDateFormat("MM月dd日").format(new Date()));
-    }
-
-    @Test
-    public void testEnum() {
-        System.out.println(ShowStatus.REFUND_FINISH.name());
     }
 
     @Test
@@ -251,51 +209,17 @@ public class Test1 {
         }
         Collections.reverse(result);
 
-        result.forEach(s -> {
-            System.out.println(s);
-        });
-    }
-
-    @Test
-    public void testStringBuffer() {
-        String s = "123";
-        System.out.println(s.hashCode());
-        s = s +"123";
-        System.out.println(s.hashCode());
-        StringBuffer s1 = new StringBuffer("456");
-        System.out.println(s1.hashCode());
-        s1.append("456");
-        System.out.println(s1.hashCode());
-    }
-
-    @Test
-    public void testEquals(){
-        String s = "123";
-        System.out.println("123".equals(s));
-        System.out.println(Objects.equals(s,"123"));
-    }
-
-    @Test
-    public void testAsList(){
-        String[] strings = {"1","2","3"};
-        List<String> list = Arrays.asList(strings);
+        result.forEach(System.out::println);
     }
 
     @Test
     public void testSubString() throws Exception{
-        String s = "2019-06-10";
-//        System.out.println(s.substring(0,7));
-
+//        String s = "2019-06-10";
+        String s = null;
         String start = Optional.ofNullable(s)
                 .map(time -> s)
 //                .map(time -> withholdStartTime.substring(0, 7))
                 .orElse(dateUtil.commonDateFormat.format(new Date()));
         System.out.println(start);
-//        System.out.println(dateUtil.timeFormat.parse(s));
-//        System.out.println(dateUtil.timeFormat.format(new Date()));
-    }
-
-    @Test
-    public void testBeanToMap(){
     }
 }
