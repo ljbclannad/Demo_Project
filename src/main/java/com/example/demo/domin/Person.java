@@ -84,15 +84,15 @@ public class Person {
     }
 
     //尝试重写了equals方法
-    @Override
-    public boolean equals(Object obj) {
-        Person person = new Person("lejb");
-        if(person.getName().equals("lejb")){
-            return false;
-        }else {
-            return true;
-        }
-    }
+//    @Override
+//    public boolean equals(Object obj) {
+//        Person person = new Person("lejb");
+//        if(person.getName().equals("lejb")){
+//            return false;
+//        }else {
+//            return true;
+//        }
+//    }
 
 //    @Override
 //    public int hashCode() {
