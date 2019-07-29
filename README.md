@@ -13,3 +13,6 @@
        
        2019-07-28 13:58:02
        Equals 总结==和equals
+       
+       2019-07-29 10:26:41
+       List1 总结ArrayList和LinkedList
