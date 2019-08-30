@@ -10,7 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
  * @date ：Created in 2019/8/2 16:59
  */
 
-@Api("测试接口")
+@Api("SwaggerHello接口")
 @RestController
 @RequestMapping("hello")
 public class HelloWorld {
