@@ -195,21 +195,27 @@ public class Test1 {
      */
     @Test
     public void testBetweenTime() throws Exception {
-        List<String> result = new ArrayList<String>();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        Date start_date = sdf.parse("2019-06-10");
-        Date end_date = sdf.parse("2019-07-20");
-        Calendar tempStart = Calendar.getInstance();
-        tempStart.setTime(start_date);
-        Calendar tempEnd = Calendar.getInstance();
-        tempEnd.setTime(end_date);
-        while (tempStart.before(tempEnd) || tempStart.equals(tempEnd)) {
-            result.add(sdf.format(tempStart.getTime()));
-            tempStart.add(Calendar.DAY_OF_YEAR, 1);
-        }
-        Collections.reverse(result);
-
-        result.forEach(System.out::println);
+//        List<String> result = new ArrayList<String>();
+//        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+//        Date start_date = sdf.parse("2019-06-10");
+//        Date end_date = sdf.parse("2019-07-20");
+//        Calendar tempStart = Calendar.getInstance();
+//        tempStart.setTime(start_date);
+//        Calendar tempEnd = Calendar.getInstance();
+//        tempEnd.setTime(end_date);
+//        while (tempStart.before(tempEnd) || tempStart.equals(tempEnd)) {
+//            result.add(sdf.format(tempStart.getTime()));
+//            tempStart.add(Calendar.DAY_OF_YEAR, 1);
+//        }
+//        Collections.reverse(result);
+//
+//        result.forEach(System.out::println);
+//        Map map = new HashMap();
+//        map.put("orderId",null);
+//        System.out.println(map.get("orderId") == null);
+//        String orderId = map.get("orderId") == null ? null : String.valueOf(map.get("orderId"));
+//        System.out.println(orderId);
+//        System.out.println(orderId == null);
     }
 
     @Test

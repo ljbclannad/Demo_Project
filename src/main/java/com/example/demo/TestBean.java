@@ -27,7 +27,11 @@ public class TestBean {
     }
 
     public static void main(String[] args) {
+        TestBean testBean = new TestBean();
 //        System.out.println(springActive);
 //        System.out.println(sss);
+//        testBean.testBean();
     }
+
+
 }

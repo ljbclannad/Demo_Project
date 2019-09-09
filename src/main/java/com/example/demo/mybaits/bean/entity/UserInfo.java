@@ -1,18 +1,20 @@
 package com.example.demo.mybaits.bean.entity;
 
 
+import io.swagger.models.auth.In;
+
 public class UserInfo {
 
-  private long id;
+  private Integer id;
   private String name;
   private String pwd;
 
 
-  public long getId() {
+  public Integer getId() {
     return id;
   }
 
-  public void setId(long id) {
+  public void setId(Integer id) {
     this.id = id;
   }
 

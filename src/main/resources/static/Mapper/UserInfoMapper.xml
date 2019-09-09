@@ -6,8 +6,6 @@
         <result column="name" property="name" jdbcType="VARCHAR" />
         <result column="pwd" property="pwd" jdbcType="VARCHAR" />
     </resultMap>
-    <sql id="Base_Column_List" >
-    id, name, pwd
-  </sql>
+
 
 </mapper>
