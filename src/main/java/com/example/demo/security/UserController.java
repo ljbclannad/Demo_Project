@@ -66,4 +66,9 @@ public class UserController {
         log.info("生成的token为:" + token);
         return token;
     }
+
+    @PostMapping("hello/{id}")
+    public void helloId(@PathVariable String id){
+        System.out.println(id);
+    }
 }
