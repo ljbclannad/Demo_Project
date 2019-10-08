@@ -44,9 +44,13 @@ public class Test1 {
     @Test
     public void testString() {
         String cardNum = "62309107990228044241";
-        System.out.println(cardNum.length());
-        //subString从下标开始,选择几位
-        System.out.println(StringUtils.left(cardNum, 4) + " **** " + cardNum.substring(cardNum.length() - 4, cardNum.length()));
+//        System.out.println(cardNum.length());
+//        //subString从下标开始,选择几位
+//        System.out.println(StringUtils.left(cardNum, 4) + " **** " + cardNum.substring(cardNum.length() - 4, cardNum.length()));
+//        String s = "2019-09-20";
+//        System.out.println(s.substring(0,7));
+//        System.out.println(StringUtils.isBlank(null));
+        System.out.println(new SimpleDateFormat("yyyyMMddhhmmss").format(new Date()));
     }
 
     @Test
