@@ -3,8 +3,11 @@ package com.example.demo.mybaits.bean.entity;
 
 import io.swagger.models.auth.In;
 
+import javax.persistence.Id;
+
 public class UserInfo {
 
+  @Id
   private Integer id;
   private String name;
   private String pwd;

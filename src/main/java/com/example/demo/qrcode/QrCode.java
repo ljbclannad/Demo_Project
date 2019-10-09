@@ -32,6 +32,7 @@ public class QrCode {
         BitMatrix bitMatrix = null;
         try {
             bitMatrix = new MultiFormatWriter().encode(content, BarcodeFormat.QR_CODE, width, height, hints);
+            bitMatrix = deleteWhite(bitMatrix);
         } catch (WriterException e) {
             e.printStackTrace();
         }
@@ -57,6 +58,7 @@ public class QrCode {
         BitMatrix bitMatrix = null;
         try {
             bitMatrix = new MultiFormatWriter().encode(text, BarcodeFormat.QR_CODE, width, height, hints);
+            bitMatrix = deleteWhite(bitMatrix);
         } catch (WriterException e) {
             e.printStackTrace();
         }
@@ -80,4 +82,19 @@ public class QrCode {
         System.out.println(str);
     }
 
+    public static BitMatrix deleteWhite(BitMatrix matrix) {
+        int[] rec = matrix.getEnclosingRectangle();
+        int resWidth = rec[2] + 1;
+        int resHeight = rec[3] + 1;
+        BitMatrix resMatrix = new BitMatrix(resWidth, resHeight);
+        resMatrix.clear();
+        for (int i = 0; i < resWidth; i++) {
+            for (int j = 0; j < resHeight; j++) {
+                if (matrix.get(i + rec[0], j + rec[1])) {
+                    resMatrix.set(i, j);
+                }
+            }
+        }
+        return resMatrix;
+    }
 }

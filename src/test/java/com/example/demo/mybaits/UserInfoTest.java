@@ -27,11 +27,9 @@ public class UserInfoTest {
     @Test
     public void selectByPrimaryKeyTest(){
         UserInfo userInfo = new UserInfo();
-        System.out.println(userInfo);
-//        userInfo.setName("王慧安");
-        userInfo.setPwd("1235");
-        UserInfo userInfo1 = userInfoMapper.selectOne(userInfo);
-//        UserInfo userInfo  = userInfoServiceImpl.selectByPrimaryKey(1);
-        System.out.println(userInfo1);
+        userInfo.setId(8);
+        userInfo.setName("lejinbo");
+        userInfo.setPwd("12353412412");
+        userInfoMapper.updateByPrimaryKeySelective(userInfo);
     }
 }
