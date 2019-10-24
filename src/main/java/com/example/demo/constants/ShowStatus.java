@@ -24,4 +24,5 @@ public enum ShowStatus {
     public String getValue() {
         return value;
     }
+
 }

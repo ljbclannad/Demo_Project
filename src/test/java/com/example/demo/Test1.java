@@ -50,7 +50,23 @@ public class Test1 {
 //        String s = "2019-09-20";
 //        System.out.println(s.substring(0,7));
 //        System.out.println(StringUtils.isBlank(null));
-        System.out.println(new SimpleDateFormat("yyyyMMddhhmmss").format(new Date()));
+
+        Date now = new Date();
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(now);
+        calendar.set(Calendar.SECOND, 0);
+        calendar.set(Calendar.MINUTE, 0);
+        calendar.set(Calendar.MILLISECOND, 0);
+        //每小时的00:00:00
+        Date start = calendar.getTime();
+
+        calendar.setTime(start);
+        calendar.add(Calendar.MINUTE, 59);
+        calendar.set(Calendar.SECOND, 59);
+        //每小时的最后
+        Date end = calendar.getTime();
+        System.out.println(start);
+        System.out.println(end);
     }
 
     @Test
@@ -199,27 +215,27 @@ public class Test1 {
      */
     @Test
     public void testBetweenTime() throws Exception {
-//        List<String> result = new ArrayList<String>();
-//        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-//        Date start_date = sdf.parse("2019-06-10");
-//        Date end_date = sdf.parse("2019-07-20");
-//        Calendar tempStart = Calendar.getInstance();
-//        tempStart.setTime(start_date);
-//        Calendar tempEnd = Calendar.getInstance();
-//        tempEnd.setTime(end_date);
-//        while (tempStart.before(tempEnd) || tempStart.equals(tempEnd)) {
-//            result.add(sdf.format(tempStart.getTime()));
-//            tempStart.add(Calendar.DAY_OF_YEAR, 1);
-//        }
-//        Collections.reverse(result);
-//
-//        result.forEach(System.out::println);
-//        Map map = new HashMap();
-//        map.put("orderId",null);
-//        System.out.println(map.get("orderId") == null);
-//        String orderId = map.get("orderId") == null ? null : String.valueOf(map.get("orderId"));
-//        System.out.println(orderId);
-//        System.out.println(orderId == null);
+
+        //查找时间段内的每个时间
+        List<String> result = new ArrayList<String>();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Date start_date = sdf.parse("2019-06-10");
+        Date end_date = sdf.parse("2019-07-20");
+        Calendar tempStart = Calendar.getInstance();
+        tempStart.setTime(start_date);
+        Calendar tempEnd = Calendar.getInstance();
+        tempEnd.setTime(end_date);
+        while (tempStart.before(tempEnd) || tempStart.equals(tempEnd)) {
+            result.add(sdf.format(tempStart.getTime()));
+            tempStart.add(Calendar.DAY_OF_YEAR, 1);
+        }
+        Collections.reverse(result);
+
+        result.forEach(System.out::println);
+        //查看中间相隔天数
+//        Date end_date =new DateUtil().timeFormat.parse("2019-12-31 23:59:59");
+//        long diffDays = (end_date.getTime() - new Date().getTime()) / (24 * 60 * 60 * 1000);
+//        System.out.println(String.valueOf(diffDays));
     }
 
     @Test
