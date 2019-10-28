@@ -13,6 +13,7 @@ import com.example.demo.utils.DateUtil;
 import com.example.demo.utils.DesCbcSecurity;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import org.apache.commons.lang.time.DateUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -72,8 +73,20 @@ public class Test1 {
     @Test
     public void testRandom() {
         //随机获取5位数
-        int a1 = (int)(((Math.random()*9+1)*100000));
-        System.out.println(System.currentTimeMillis()+"#"+String.valueOf(a1));
+//        int a1 = (int)(((Math.random()*9+1)*100000));
+//        System.out.println(System.currentTimeMillis()+"#"+String.valueOf(a1));
+//        JSONObject j = new JSONObject();
+//        j.put("1","23");
+//        JSONObject a = new JSONObject();
+//        a.put("23","34");
+//        j.put("231213",a);
+//        System.out.println(j);
+//
+//        System.out.println((Map<String,String>)j.get("231213"));
+        Date end_date = DateUtils.addDays(new Date(),1);
+        System.out.println(end_date);
+        long diffDays = (end_date.getTime() - new Date().getTime()) / (24 * 60 * 60 * 1000);
+        System.out.println(diffDays);
     }
 
     @Test

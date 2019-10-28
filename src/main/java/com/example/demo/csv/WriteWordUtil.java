@@ -6,7 +6,9 @@ import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 import org.apache.poi.xwpf.usermodel.XWPFRun;
 
+import javax.servlet.http.HttpServletResponse;
 import java.io.*;
+import java.net.URLEncoder;
 import java.util.List;
 
 /**
@@ -17,9 +19,9 @@ import java.util.List;
 @Slf4j
 public class WriteWordUtil {
 
-    public static void createWord(List<String> content, String fileName) throws Exception {
+    public static void createWord(List<String> content, String fileName, HttpServletResponse response) throws Exception {
 
-     // 文件路径
+        // 文件路径
         String filePath = System.getProperty("user.dir") + System.getProperty("file.separator");
         System.out.println(filePath);
 
@@ -32,7 +34,9 @@ public class WriteWordUtil {
             if (!dir.exists()) {
                 dir.mkdirs();
             }
-            stream = new FileOutputStream(new File(filePath + fileName));
+
+            File file = new File(filePath + fileName);
+            stream = new FileOutputStream(file);
             bufferStream = new BufferedOutputStream(stream, 1024);
             // 创建一个段落
             XWPFParagraph p1 = document.createParagraph();
@@ -60,6 +64,29 @@ public class WriteWordUtil {
             document.write(stream);
             stream.close();
             bufferStream.close();
+
+            try (InputStream fis = new BufferedInputStream(new FileInputStream(file))) {
+                byte[] buffer = new byte[fis.available()];
+                int count = 0;
+                while ((count = fis.read(buffer)) > 0) {
+                }
+                fis.close();
+                // 清空response
+                response.reset();
+                // 设置response的Header
+                response.setHeader("Content-disposition", "attachment; filename=" + URLEncoder.encode(fileName, "UTF-8"));
+                response.addHeader("Content-Length", "" + file.length());
+                OutputStream toClient = new BufferedOutputStream(response.getOutputStream());
+                response.setContentType("application/octet-stream");
+                toClient.write(buffer);
+                toClient.flush();
+                toClient.close();
+                if (file.delete()) {
+                    log.info("");
+                }
+            } catch (FileNotFoundException e) {
+                log.info(e.getMessage());
+            }
         } catch (Exception ex) {
             log.error("写word或Excel错误文件失败：{}", ex.getMessage());
         } finally {

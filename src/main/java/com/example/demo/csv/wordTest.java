@@ -1,6 +1,7 @@
 package com.example.demo.csv;
 
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,10 +13,11 @@ import java.util.List;
 
 public class wordTest {
 
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
         List<String> list = new ArrayList<>();
         list.add("123");
         list.add("456");
-        WriteWordUtil.createWord(list,"开通协议");
+        HttpServletResponse response = null;
+        WriteWordUtil.createWord(list, "开通协议", response);
     }
 }
