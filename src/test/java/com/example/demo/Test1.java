@@ -90,11 +90,13 @@ public class Test1 {
     }
 
     @Test
-    public void testJSON() {
-        Person person = new Person();
-        person.setAge("11");
-        Object jsonObject = JSONObject.toJSON(person);
-        System.out.println(JSONObject.toJSONString(jsonObject));
+    public void testJSON() throws Exception{
+//        Person person = new Person();
+//        person.setAge("11");
+//        Object jsonObject = JSONObject.toJSON(person);
+//        System.out.println(JSONObject.toJSONString(jsonObject));
+        System.out.println(new SimpleDateFormat("yyyyMMddHHmmss").parse("20191012011111"));
+        System.out.println(new DateUtil().timeFormat.format(new SimpleDateFormat("yyyyMMddHHmmss").parse("20191012011111")));
     }
 
     @Test

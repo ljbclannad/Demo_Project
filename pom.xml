@@ -223,6 +223,17 @@
             <artifactId>poi-scratchpad</artifactId>
             <version>3.17</version>
         </dependency>
+
+        <!-- Redis -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-pool2</artifactId>
+        </dependency>
+        <!-- Redis -->
     </dependencies>
 
     <build>

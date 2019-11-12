@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import com.example.demo.redis.RedisTest;
+import org.checkerframework.checker.units.qual.A;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +26,9 @@ public class Test2 {
     @Autowired
     private TestBean testBean;
 
+    @Autowired
+    private RedisTest redisTest;
+
     @Test
     public void test(){
         System.out.println(springActive);
@@ -33,5 +38,10 @@ public class Test2 {
     @Test
     public void test1(){
         testBean.testBean();
+    }
+
+    @Test
+    public void testRedis(){
+        redisTest.testRedis("123456","17681879260");
     }
 }
