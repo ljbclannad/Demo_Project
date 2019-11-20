@@ -1,6 +1,10 @@
 package com.example.demo.lambda;
 
+import com.example.demo.domin.Student;
+
+import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.TimeUnit;
@@ -74,5 +78,14 @@ public class Stream {
         long millis1 = TimeUnit.NANOSECONDS.toMillis(t2 - t1);
         System.out.println(String.format("parallel sort took: %d ms", millis));
         System.out.println(String.format("sort took: %d ms", millis1));
+
+        //stream获取对象中的参数进行处理
+//        BigDecimal refundAmount = stringList.stream().map(Order::getAmount).reduce(BigDecimal.ZERO, BigDecimal::add).setScale(2, BigDecimal.ROUND_HALF_UP);
+//        BigDecimal refundInterestAmount = stringList.stream().map(Order::getInterestAmount).reduce(BigDecimal.ZERO, BigDecimal::add).setScale(2, BigDecimal.ROUND_HALF_UP);
+//        BigDecimal refundAllAmount = refundAmount.add(refundInterestAmount).setScale(2, BigDecimal.ROUND_HALF_UP);
+
+        //stream获取到对象中的参数进行排序获取到第一个内容
+//        String refundOverDueTime = stringList.stream().map(Student::getNumber).sorted(String::compareTo).limit(1).findFirst().get();
+
     }
 }
