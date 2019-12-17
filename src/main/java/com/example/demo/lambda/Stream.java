@@ -3,11 +3,9 @@ package com.example.demo.lambda;
 import com.example.demo.domin.Student;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
+import java.util.stream.Collectors;
 
 /**
  * @author ：lejb
@@ -84,8 +82,20 @@ public class Stream {
 //        BigDecimal refundInterestAmount = stringList.stream().map(Order::getInterestAmount).reduce(BigDecimal.ZERO, BigDecimal::add).setScale(2, BigDecimal.ROUND_HALF_UP);
 //        BigDecimal refundAllAmount = refundAmount.add(refundInterestAmount).setScale(2, BigDecimal.ROUND_HALF_UP);
 
+        //stream获取到对象中的参数进行处理
+//        orders.stream().map(Order::getId).forEach(orderIds -> {})
+
+
         //stream获取到对象中的参数进行排序获取到第一个内容
 //        String refundOverDueTime = stringList.stream().map(Student::getNumber).sorted(String::compareTo).limit(1).findFirst().get();
+
+        //stream提取对象中的内容之后存入list
+//        orderDetails = orders.stream().map(order -> {
+//            Map<String, String> orderMap = new HashMap<>();
+//            orderMap.put("orderId", order.getId());
+//            return orderMap;
+//        }).collect(Collectors.toList());
+
 
     }
 }
