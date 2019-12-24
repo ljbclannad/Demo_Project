@@ -24,6 +24,7 @@ public class SemaphoreDemo implements Runnable {
             semaphore.acquire();
             Thread.sleep(2000);
             System.out.println(Thread.currentThread().getId());
+            System.out.println(System.currentTimeMillis());
         }catch (InterruptedException e){
             log.info(e.getMessage());
         }finally {
