@@ -2,6 +2,8 @@ package com.example.demo.thread.executor;
 
 import io.swagger.annotations.Api;
 
+import java.util.Random;
+
 /**
  * @author ：lejb
  * @date ：Created in 2019/10/25 11:00
@@ -28,6 +30,6 @@ public class Consumer implements Runnable {
     public void run() {
         System.out.println("用户姓名" + name);
         System.out.println("用户身份证" + certNum);
-        System.out.println("用户手机号" + phone);
+        System.out.println("用户手机号" + new Random().nextInt(10));
     }
 }

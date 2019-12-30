@@ -21,14 +21,29 @@ import java.util.concurrent.*;
 @Api(value = "调用线程池业务")
 public class DoExecutor {
 
-    ExecutorService executor = new ThreadPoolExecutor(10, 10, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue<>(10));
+
+    ExecutorService executor = new ThreadPoolExecutor(10, 10, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue<>(10), new ThreadFactory() {
+        @Override
+        public Thread newThread(Runnable r) {
+            //创建新线程，每次都去执行Runnable.run方法
+            Thread thread = new Thread(r);
+            //设置为守护线程
+            thread.setDaemon(true);
+            System.out.println(1);
+            return thread;
+        }
+    });
 
     private Consumer consumer;
 
     @PostMapping
     public  void doExecutor() {
         consumer = new Consumer("lejb","123456","123456");
-        executor.execute(consumer);
+        for (int i = 0; i <20 ; i++) {
+//            executor.execute(consumer);
+            //每提交一次任务就会调用线程池中的newThread方法。
+            executor.submit(consumer);
+        }
     }
 
 }
