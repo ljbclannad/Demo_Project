@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @SpringBootApplication
 @EnableTransactionManagement
 @EnableWebSecurity
-@EnableScheduling
+//@EnableScheduling
 public class DemoApplication {
 
     @Bean
