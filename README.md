@@ -65,3 +65,6 @@
        2020-03-04 11:27:23
        designpatterns  静态工厂，工厂方法，抽象工厂设计模式
        
+       2020-03-04 11:48:56
+       copybean bean对象之间的复制(apache和spring)
+       
