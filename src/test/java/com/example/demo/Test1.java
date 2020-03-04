@@ -47,7 +47,8 @@ public class Test1 {
         String cardNum = "62309107990228044241";
 //        System.out.println(cardNum.length());
 //        //subString从下标开始,选择几位
-//        System.out.println(StringUtils.left(cardNum, 4) + " **** " + cardNum.substring(cardNum.length() - 4, cardNum.length()));
+        System.out.println(StringUtils.left(cardNum, 4) + " **** " + cardNum.substring(cardNum.length() - 4, cardNum.length()));
+        System.out.println(StringUtils.right(cardNum,4));
 //        String s = "2019-09-20";
 //        System.out.println(s.substring(0,7));
 //        System.out.println(StringUtils.isBlank(null));
@@ -95,6 +96,12 @@ public class Test1 {
 //        person.setAge("11");
 //        Object jsonObject = JSONObject.toJSON(person);
 //        System.out.println(JSONObject.toJSONString(jsonObject));
+
+        HashMap map = new HashMap();
+        String s = "231";
+        map.put(s,"123");
+        map.put(s,"321");
+        System.out.println(map.get(s));
         System.out.println(new SimpleDateFormat("yyyyMMddHHmmss").parse("20191012011111"));
         System.out.println(new DateUtil().timeFormat.format(new SimpleDateFormat("yyyyMMddHHmmss").parse("20191012011111")));
     }
