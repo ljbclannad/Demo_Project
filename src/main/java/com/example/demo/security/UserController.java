@@ -4,14 +4,13 @@ import com.example.demo.mybaits.bean.entity.UserInfo;
 import com.example.demo.mybaits.bean.mapper.UserInfoMapper;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import jdk.internal.instrumentation.Logger;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @author ：lejb
@@ -33,6 +32,18 @@ public class UserController {
     @ResponseBody
     @RequestMapping("admin")
     public String userAdmin() {
+        List<byte[]> list = new ArrayList<>();
+        for (int i = 0; i < 10000; i++) {
+            try {
+                byte[] placeholder = new byte[64 * 1024];
+                System.out.println(placeholder);
+                Thread.sleep(50);
+                list.add(placeholder);
+                list.stream().forEach(bytes -> System.out.println(bytes));
+            } catch (InterruptedException e) {
+                log.info(e.getMessage());
+            }
+        }
         return "userAdmin";
     }
 
@@ -68,7 +79,7 @@ public class UserController {
     }
 
     @PostMapping("hello/{id}")
-    public void helloId(@PathVariable String id){
+    public void helloId(@PathVariable String id) {
         System.out.println(id);
     }
 }
